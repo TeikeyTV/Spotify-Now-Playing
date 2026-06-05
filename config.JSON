@@ -1,0 +1,5 @@
+{
+    "clientId": "your_client_id_here",
+    "clientSecret": "your_client_secret_here",
+    "refresh_token": "your_refresh_token_here"
+}
