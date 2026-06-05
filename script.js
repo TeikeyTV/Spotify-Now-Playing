@@ -10,7 +10,6 @@ const routes = {
     "/Close" : "<h1>Close</h1>"
 };
 
-function submitCred() {
-    console.log('Submit Cred');
-    
+function gotoInputpage() {
+    console.log('Navigating to input page');
 }
