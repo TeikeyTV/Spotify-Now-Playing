@@ -1,14 +1,15 @@
-console.log('Connected');
+console.log("Connected");
 
 // DOM Connector
-const main_container = document.querySelector('.main-container');
+const mainContainer = document.querySelector(".main-container");
 
-// Page System
+// Pages
 const pages = {
     "/": `
         <div class="page">
             <h1>Welcome</h1>
             <p>Welcome to our music player.</p>
+
             <button onclick="navigate('/login')">
                 Login
             </button>
@@ -19,9 +20,11 @@ const pages = {
         <div class="page">
             <h1>Login</h1>
 
-            <input type="text" placeholder="Username"><br><br>
+            <input type="text" placeholder="Username">
+            <br><br>
 
-            <input type="password" placeholder="Password"><br><br>
+            <input type="password" placeholder="Password">
+            <br><br>
 
             <button onclick="navigate('/now-playing')">
                 Sign In
@@ -34,6 +37,7 @@ const pages = {
             <h1>Now Playing</h1>
 
             <h2>🎵 My Favorite Song</h2>
+            <p>Artist Name</p>
 
             <button onclick="navigate('/thank-you')">
                 Finish
@@ -54,31 +58,36 @@ const pages = {
     `
 };
 
+// Navigation function
 function navigate(route) {
     location.hash = route;
 }
 
+// Render current page
 function render() {
-    const route = location.hash || "#/";
-    
-    switch(route) {
-        case "#/":
-            main_container.innerHTML = pages["/"];
-            break;
-
-        case "#/login":
-            main_container.innerHTML = pages["/login"];
-            break;
-
-        case "#/now-playing":
-            main_container.innerHTML = pages["/now-playing"];
-            break;
-
-        case "#/thank-you":
-            main_container.innerHTML = pages["/thank-you"];
-            break;
+    if (!mainContainer) {
+        console.error("Element '.main-container' not found.");
+        return;
     }
+
+    const route = location.hash.slice(1) || "/";
+
+    mainContainer.innerHTML =
+        pages[route] ||
+        `
+        <div class="page">
+            <h1>404</h1>
+            <p>Page Not Found</p>
+
+            <button onclick="navigate('/')">
+                Go Home
+            </button>
+        </div>
+        `;
 }
 
+// Listen for route changes
 window.addEventListener("hashchange", render);
-render();
+
+// Initial load
+window.addEventListener("DOMContentLoaded", render);
