@@ -28,5 +28,6 @@
     min-width: 400px;
     min-height: 400px;
     margin: auto;
+    gap: 16px;
 }
 

@@ -10,55 +10,47 @@ main_container.appendChild(card_container);
 // Pages
 const pages = {
     "/": `
-        <div class="page">
-            <h1>Welcome</h1>
-            <p>Welcome to our music player.</p>
+        <h1>Welcome</h1>
+        <p>Welcome to our music player.</p>
 
-            <button onclick="navigate('/login')">
-                Login
-            </button>
-        </div>
+        <button onclick="navigate('/login')">
+            Login
+        </button>
     `,
 
     "/login": `
-        <div class="page">
-            <h1>Login</h1>
+        <h1>Login</h1>
 
-            <input type="text" placeholder="Username">
-            <br><br>
+        <input type="text" placeholder="Username">
+        <br><br>
 
-            <input type="password" placeholder="Password">
-            <br><br>
+        <input type="password" placeholder="Password">
+        <br><br>
 
-            <button onclick="navigate('/now-playing')">
-                Sign In
-            </button>
-        </div>
+        <button onclick="navigate('/now-playing')">
+            Sign In
+        </button>
     `,
 
     "/now-playing": `
-        <div class="page">
-            <h1>Now Playing</h1>
+        <h1>Now Playing</h1>
 
-            <h2>🎵 My Favorite Song</h2>
-            <p>Artist Name</p>
+        <h2>🎵 My Favorite Song</h2>
+        <p>Artist Name</p>
 
-            <button onclick="navigate('/thank-you')">
-                Finish
-            </button>
-        </div>
+        <button onclick="navigate('/thank-you')">
+            Finish
+        </button>
     `,
 
     "/thank-you": `
-        <div class="page">
-            <h1>Thank You</h1>
+        <h1>Thank You</h1>
 
-            <p>Thanks for visiting!</p>
+        <p>Thanks for visiting!</p>
 
-            <button onclick="navigate('/')">
-                Start Again
-            </button>
-        </div>
+        <button onclick="navigate('/')">
+            Start Again
+        </button>
     `
 };
 
