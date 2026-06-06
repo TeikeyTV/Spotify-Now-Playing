@@ -1,7 +1,11 @@
 console.log("Connected");
 
 // DOM Connector
-const mainContainer = document.querySelector(".main-container");
+const main_container = document.querySelector(".main-container");
+
+const card_container = document.createElement("div");
+card_container.classList.add("card-container");
+main_container.appendChild(card_container);
 
 // Pages
 const pages = {
@@ -65,14 +69,14 @@ function navigate(route) {
 
 // Render current page
 function render() {
-    if (!mainContainer) {
-        console.error("Element '.main-container' not found.");
+    if (!card_container) {
+        console.error("Element '.card-container' not found.");
         return;
     }
 
     const route = location.hash.slice(1) || "/";
 
-    mainContainer.innerHTML =
+    card_container.innerHTML =
         pages[route] ||
         `
         <div class="page">
