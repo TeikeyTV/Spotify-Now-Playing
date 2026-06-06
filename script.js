@@ -54,24 +54,31 @@ const pages = {
     `
 };
 
+function navigate(route) {
+    location.hash = route;
+}
+
 function render() {
-    const path = window.location.pathname;
+    const route = location.hash || "#/";
+    
+    switch(route) {
+        case "#/":
+            main_container.innerHTML = pages["/"];
+            break;
 
-    main_container.innerHTML =
-        pages[path] ||
-        `
-        <div class="page">
-            <h1>404</h1>
-            <p>Page Not Found</p>
-        </div>
-        `;
+        case "#/login":
+            main_container.innerHTML = pages["/login"];
+            break;
+
+        case "#/now-playing":
+            main_container.innerHTML = pages["/now-playing"];
+            break;
+
+        case "#/thank-you":
+            main_container.innerHTML = pages["/thank-you"];
+            break;
+    }
 }
 
-function navigate(path) {
-    history.pushState({}, "", path);
-    render();
-}
-
-window.addEventListener("popstate", render);
-
+window.addEventListener("hashchange", render);
 render();
